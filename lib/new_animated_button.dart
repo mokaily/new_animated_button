@@ -1,4 +1,4 @@
-library new_animated_button;
+library;
 
 export 'src/new_animated_button_widget.dart' show NewAnimatedButton;
 

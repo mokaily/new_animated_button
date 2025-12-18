@@ -93,12 +93,13 @@ NewAnimatedButton(
 ## 🎯 Tap Animations
 
 ```dart
-TapAnimation.jelly();
-TapAnimation.scale();
-TapAnimation.ripple();
-TapAnimation.bounce();
-TapAnimation.wave();
+TapAnimation.jelly(),
+TapAnimation.scale(),
+TapAnimation.ripple(),
+TapAnimation.bounce(),
+TapAnimation.wave(),
 ```
+![tap_animation.gif](example/images/tap_animation.gif)
 
 ---
 
@@ -111,6 +112,28 @@ HoverAnimation.glow();
 HoverAnimation.shimmer();
 HoverAnimation.none();
 ```
+![hover_animation.gif](example/images/hover_animation.gif)
+
+---
+
+## 🧩 Combined Animations (Tap + Hover)
+
+You can combine tap and hover animations together:
+
+```dart
+NewAnimatedButton(
+  tapAnimation: TapAnimation.wave(),
+  hoverAnimation: HoverAnimation.glow(),
+  gradient: const LinearGradient(
+  colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)],
+  ),
+  child: const Text(
+  'Jelly + Lift',
+  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+  ),
+)
+```
+![combined_animation.gif](example/images/combined_animation.gif)
 
 ---
 
@@ -134,6 +157,7 @@ ButtonShape.circle();
 ButtonShape.polygon(sides: 6);
 ButtonShape.star(points: 5);
 ```
+![shapes.png](example/images/shapes.png)
 
 ---
 

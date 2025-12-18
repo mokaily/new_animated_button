@@ -50,10 +50,9 @@ void drawBackgroundLayer({
 }
 
 void drawGlassLayer({required Canvas canvas, required Path path}) {
-  final paint =
-      Paint()
-        ..color = Colors.white.withOpacity(0.15)
-        ..style = PaintingStyle.fill;
+  final paint = Paint()
+    ..color = Colors.white.withAlpha(38)
+    ..style = PaintingStyle.fill;
   canvas.drawPath(path, paint);
 }
 
@@ -65,19 +64,22 @@ void drawBorderLayer({
   required HoverAnimation hoverAnimation,
   required double hoverProgress,
 }) {
-  var borderOpacity = isGlass ? 0.3 : 0.2;
-  var borderWidth = 1.5;
+  var borderOpacityAlpha = isGlass ? 77 : 51;
+  var borderWidth = 1.0;
 
   if (hoverAnimation is HoverGlowAnimation && isHovered) {
-    borderOpacity += hoverAnimation.glowStrength * hoverProgress;
+    borderOpacityAlpha =
+        (borderOpacityAlpha + (hoverAnimation.glowStrength * hoverProgress * 255)).clamp(0, 255).toInt();
     borderWidth += 1.0 * hoverProgress;
   }
 
-  final paint =
-      Paint()
-        ..color = Colors.white.withOpacity(borderOpacity)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = borderWidth;
+  final paint = Paint()
+    ..isAntiAlias = true
+    ..strokeJoin = StrokeJoin.round
+    ..strokeCap = StrokeCap.round
+    ..color = Colors.white.withAlpha(borderOpacityAlpha)
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = borderWidth;
 
   canvas.drawPath(path, paint);
 }
@@ -91,15 +93,14 @@ void drawHighlightLayer({required Canvas canvas, required List<Offset> points, r
     highlightPath.lineTo(highlightPoints[i].dx, highlightPoints[i].dy);
   }
 
-  final paint =
-      Paint()
-        ..shader = const LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.center,
-          colors: [Colors.white54, Colors.transparent],
-        ).createShader(Rect.fromLTWH(0, 0, size.width, size.height / 3))
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 2.0;
+  final paint = Paint()
+    ..shader = const LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.center,
+      colors: [Colors.white54, Colors.transparent],
+    ).createShader(Rect.fromLTWH(0, 0, size.width, size.height / 3))
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 2.0;
 
   canvas.drawPath(highlightPath, paint);
 }
@@ -114,11 +115,12 @@ void drawRippleLayer({
   final maxRadius = math.sqrt(size.width * size.width + size.height * size.height);
   final radius = releaseProgress * maxRadius;
 
-  final paint =
-      Paint()
-        ..color = animation.rippleColor.withOpacity(0.3 * (1 - releaseProgress))
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 3.0;
+  final alpha = (77 * (1 - releaseProgress)).clamp(0, 255).toInt();
+
+  final paint = Paint()
+    ..color = animation.rippleColor.withAlpha(alpha)
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 3.0;
 
   canvas.drawCircle(pressPosition, radius, paint);
 }
@@ -129,15 +131,14 @@ void drawShimmerLayer({
   required Path path,
   required double shimmerProgress,
 }) {
-  final paint =
-      Paint()
-        ..shader = LinearGradient(
-          begin: Alignment(-1.0 + shimmerProgress * 2, 0),
-          end: Alignment(1.0 + shimmerProgress * 2, 0),
-          colors: [Colors.transparent, Colors.white.withOpacity(0.3), Colors.transparent],
-          stops: const [0.0, 0.5, 1.0],
-        ).createShader(Rect.fromLTWH(0, 0, size.width, size.height))
-        ..blendMode = BlendMode.overlay;
+  final paint = Paint()
+    ..shader = LinearGradient(
+      begin: Alignment(-1.0 + shimmerProgress * 2, 0),
+      end: Alignment(1.0 + shimmerProgress * 2, 0),
+      colors: [Colors.transparent, Colors.white.withAlpha(77), Colors.transparent],
+      stops: const [0.0, 0.5, 1.0],
+    ).createShader(Rect.fromLTWH(0, 0, size.width, size.height))
+    ..blendMode = BlendMode.overlay;
 
   canvas.drawPath(path, paint);
 }
@@ -145,12 +146,11 @@ void drawShimmerLayer({
 void drawLongPressIndicator({required Canvas canvas, required Size size, required double progress}) {
   final rect = Rect.fromLTWH(-3, -3, size.width + 6, size.height + 6);
 
-  final paint =
-      Paint()
-        ..color = Colors.white.withOpacity(0.8)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 3.0
-        ..strokeCap = StrokeCap.round;
+  final paint = Paint()
+    ..color = Colors.white.withAlpha(204)
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 3.0
+    ..strokeCap = StrokeCap.round;
 
   final sweepAngle = 2 * math.pi * progress;
   canvas.drawArc(rect, -math.pi / 2, sweepAngle, false, paint);

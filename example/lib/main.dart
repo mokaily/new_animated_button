@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:new_animated_button/new_animated_button.dart';
-import 'package:new_animated_button/src/painter/button_shadow.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      showPerformanceOverlay: true,
-      title: 'Jelly Button Animations',
+      title: 'New Animated Button',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.purple),
       home: const AnimationDemoPage(),
@@ -41,7 +39,7 @@ class AnimationDemoPage extends StatelessWidget {
             child: Column(
               children: [
                 const Text(
-                  'Jelly Button Animations 🎨',
+                  'New Animated Buttons 🎨',
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Color(0xFF374151)),
                 ),
                 const SizedBox(height: 40),

@@ -3,8 +3,7 @@ import 'dart:ui';
 
 import '../model/button_shape.dart';
 
-List<Offset> generateShapePoints(
-    {required ButtonShape shape, required Size size}) {
+List<Offset> generateShapePoints({required ButtonShape shape, required Size size}) {
   return switch (shape) {
     CircleShape() => _circle(size),
     StadiumShape() => _stadium(size),
@@ -26,8 +25,7 @@ List<Offset> _circle(Size size) {
 
   for (var i = 0; i < pointsCount; i++) {
     final angle = (i / pointsCount) * 2 * math.pi;
-    result.add(Offset(center.dx + math.cos(angle) * radius,
-        center.dy + math.sin(angle) * radius));
+    result.add(Offset(center.dx + math.cos(angle) * radius, center.dy + math.sin(angle) * radius));
   }
   return result;
 }
@@ -46,8 +44,7 @@ List<Offset> _stadium(Size size) {
   for (var i = 1; i <= pointsPerSide; i++) {
     final t = i / pointsPerSide;
     final angle = -math.pi / 2 + t * math.pi;
-    points.add(
-        Offset(size.width - r + math.cos(angle) * r, r + math.sin(angle) * r));
+    points.add(Offset(size.width - r + math.cos(angle) * r, r + math.sin(angle) * r));
   }
 
   for (var i = 1; i <= pointsPerSide; i++) {
@@ -75,8 +72,7 @@ List<Offset> _rectangle(Size size) {
     points.add(Offset(size.width, (i / pointsPerSide) * size.height));
   }
   for (var i = 1; i <= pointsPerSide; i++) {
-    points.add(
-        Offset(size.width - (i / pointsPerSide) * size.width, size.height));
+    points.add(Offset(size.width - (i / pointsPerSide) * size.width, size.height));
   }
   for (var i = 1; i < pointsPerSide; i++) {
     points.add(Offset(0, size.height - (i / pointsPerSide) * size.height));
@@ -87,16 +83,14 @@ List<Offset> _rectangle(Size size) {
 
 List<Offset> _polygon(Size size, PolygonShape shape) {
   final sides = shape.sides.clamp(3, 60);
-  if (sides < 3)
-    return _roundedRect(size, const RoundedRectangleShape(radius: 30));
+  if (sides < 3) return _roundedRect(size, const RoundedRectangleShape(radius: 30));
 
   final radius = math.min(size.width, size.height) / 2;
   final center = Offset(size.width / 2, size.height / 2);
 
   final vertices = List<Offset>.generate(sides, (i) {
     final angle = (2 * math.pi * i / sides) + shape.rotation - math.pi / 2;
-    return Offset(center.dx + radius * math.cos(angle),
-        center.dy + radius * math.sin(angle));
+    return Offset(center.dx + radius * math.cos(angle), center.dy + radius * math.sin(angle));
   });
 
   const pointsPerSide = 8;
@@ -107,8 +101,7 @@ List<Offset> _polygon(Size size, PolygonShape shape) {
     final b = vertices[(i + 1) % sides];
     for (var j = 0; j < pointsPerSide; j++) {
       final t = j / pointsPerSide;
-      points
-          .add(Offset(lerpDouble(a.dx, b.dx, t)!, lerpDouble(a.dy, b.dy, t)!));
+      points.add(Offset(lerpDouble(a.dx, b.dx, t)!, lerpDouble(a.dy, b.dy, t)!));
     }
   }
 
@@ -116,8 +109,7 @@ List<Offset> _polygon(Size size, PolygonShape shape) {
 }
 
 List<Offset> _star(Size size, StarShape shape) {
-  if (shape.points < 2)
-    return _roundedRect(size, const RoundedRectangleShape(radius: 30));
+  if (shape.points < 2) return _roundedRect(size, const RoundedRectangleShape(radius: 30));
 
   final points = <Offset>[];
   final outerRadius = math.min(size.width, size.height) / 2;
@@ -130,17 +122,14 @@ List<Offset> _star(Size size, StarShape shape) {
   for (var i = 0; i < totalSegments; i++) {
     final isOuter = i % 2 == 0;
     final currentRadius = isOuter ? outerRadius : innerRadius;
-    final startAngle =
-        (i / totalSegments) * 2 * math.pi + shape.rotation - math.pi / 2;
-    final endAngle =
-        ((i + 1) / totalSegments) * 2 * math.pi + shape.rotation - math.pi / 2;
+    final startAngle = (i / totalSegments) * 2 * math.pi + shape.rotation - math.pi / 2;
+    final endAngle = ((i + 1) / totalSegments) * 2 * math.pi + shape.rotation - math.pi / 2;
 
     for (var j = 0; j <= pointsPerSegment; j++) {
       final t = j / pointsPerSegment;
       final angle = startAngle + t * (endAngle - startAngle);
       points.add(
-        Offset(center.dx + math.cos(angle) * currentRadius,
-            center.dy + math.sin(angle) * currentRadius),
+        Offset(center.dx + math.cos(angle) * currentRadius, center.dy + math.sin(angle) * currentRadius),
       );
     }
   }
@@ -179,8 +168,7 @@ List<Offset> _roundedRect(Size size, RoundedRectangleShape shape) {
   for (var i = 1; i <= pointsPerSide; i++) {
     final t = i / pointsPerSide;
     final angle = -math.pi / 2 + t * (math.pi / 2);
-    points.add(Offset(size.width - radius + math.cos(angle) * radius,
-        radius + math.sin(angle) * radius));
+    points.add(Offset(size.width - radius + math.cos(angle) * radius, radius + math.sin(angle) * radius));
   }
 
   for (var i = 1; i <= pointsPerSide; i++) {
@@ -192,35 +180,30 @@ List<Offset> _roundedRect(Size size, RoundedRectangleShape shape) {
     final t = i / pointsPerSide;
     final angle = t * (math.pi / 2);
     points.add(
-      Offset(size.width - radius + math.cos(angle) * radius,
-          size.height - radius + math.sin(angle) * radius),
+      Offset(size.width - radius + math.cos(angle) * radius, size.height - radius + math.sin(angle) * radius),
     );
   }
 
   for (var i = 1; i <= pointsPerSide; i++) {
     final t = i / pointsPerSide;
-    points.add(Offset(
-        size.width - radius - t * (size.width - 2 * radius), size.height));
+    points.add(Offset(size.width - radius - t * (size.width - 2 * radius), size.height));
   }
 
   for (var i = 1; i <= pointsPerSide; i++) {
     final t = i / pointsPerSide;
     final angle = math.pi / 2 + t * (math.pi / 2);
-    points.add(Offset(radius + math.cos(angle) * radius,
-        size.height - radius + math.sin(angle) * radius));
+    points.add(Offset(radius + math.cos(angle) * radius, size.height - radius + math.sin(angle) * radius));
   }
 
   for (var i = 1; i <= pointsPerSide; i++) {
     final t = i / pointsPerSide;
-    points
-        .add(Offset(0, size.height - radius - t * (size.height - 2 * radius)));
+    points.add(Offset(0, size.height - radius - t * (size.height - 2 * radius)));
   }
 
   for (var i = 1; i < pointsPerSide; i++) {
     final t = i / pointsPerSide;
     final angle = math.pi + t * (math.pi / 2);
-    points.add(Offset(
-        radius + math.cos(angle) * radius, radius + math.sin(angle) * radius));
+    points.add(Offset(radius + math.cos(angle) * radius, radius + math.sin(angle) * radius));
   }
 
   return points;
@@ -254,8 +237,7 @@ List<Offset> _roundedRectCustom(Size size, RoundedRectangleCustomShape s) {
     for (var i = 1; i <= pointsPerSide; i++) {
       final t = i / pointsPerSide;
       final angle = -math.pi / 2 + t * (math.pi / 2);
-      points.add(Offset(
-          size.width - tr + math.cos(angle) * tr, tr + math.sin(angle) * tr));
+      points.add(Offset(size.width - tr + math.cos(angle) * tr, tr + math.sin(angle) * tr));
     }
   }
 
@@ -268,23 +250,20 @@ List<Offset> _roundedRectCustom(Size size, RoundedRectangleCustomShape s) {
     for (var i = 1; i <= pointsPerSide; i++) {
       final t = i / pointsPerSide;
       final angle = t * (math.pi / 2);
-      points.add(Offset(size.width - br + math.cos(angle) * br,
-          size.height - br + math.sin(angle) * br));
+      points.add(Offset(size.width - br + math.cos(angle) * br, size.height - br + math.sin(angle) * br));
     }
   }
 
   for (var i = 1; i <= pointsPerSide; i++) {
     final t = i / pointsPerSide;
-    points
-        .add(Offset(size.width - br - t * (size.width - br - bl), size.height));
+    points.add(Offset(size.width - br - t * (size.width - br - bl), size.height));
   }
 
   if (bl > 0) {
     for (var i = 1; i <= pointsPerSide; i++) {
       final t = i / pointsPerSide;
       final angle = math.pi / 2 + t * (math.pi / 2);
-      points.add(Offset(
-          bl + math.cos(angle) * bl, size.height - bl + math.sin(angle) * bl));
+      points.add(Offset(bl + math.cos(angle) * bl, size.height - bl + math.sin(angle) * bl));
     }
   }
 

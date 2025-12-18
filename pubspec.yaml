@@ -1,6 +1,6 @@
 name: new_animated_button
 description: A high-performance animated button for Flutter with advanced tap, hover, and combined animations. Optimized for Flutter Web, Desktop, and Mobile.
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/mokaily/new_animated_button
 
 environment:

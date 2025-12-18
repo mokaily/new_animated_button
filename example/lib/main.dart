@@ -219,7 +219,7 @@ class AnimationDemoPage extends StatelessWidget {
                 const SizedBox(height: 50),
 
                 // LONG PRESS
-                const Text('Long Press',
+                const Text('Custom Shapes',
                     style:
                         TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 20),
@@ -227,42 +227,61 @@ class AnimationDemoPage extends StatelessWidget {
                   spacing: 20,
                   runSpacing: 20,
                   alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     NewAnimatedButton(
-                      onPressed: () => {},
-                      onPressedUp: () => {},
-                      onLongPress: () => {},
-                      longPressDuration: const Duration(milliseconds: 500),
-                      tapAnimation: TapAnimation.scale(),
+                      shape: ButtonShape.roundedRectangle(radius: 30),
                       gradient: const LinearGradient(
                           colors: [Color(0xFF8B5CF6), Color(0xFF7C3AED)]),
-                      child: const Text('Hold Me (500ms)',
+                      child: const Text('Rounded rectangle',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
-                      onPressed: () => {},
-                      onPressedUp: () => {},
-                      onLongPress: () => {},
-                      longPressDuration: const Duration(milliseconds: 1000),
-                      tapAnimation: TapAnimation.jelly(),
+                      shape: ButtonShape.rectangle(),
                       gradient: const LinearGradient(
                           colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
-                      child: const Text('Hold Me (1s)',
+                      child: const Text('Rectangle',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
-                      onPressed: () => {},
-                      onPressedUp: () => {},
-                      onLongPress: () => {},
-                      longPressDuration: const Duration(milliseconds: 1500),
-                      tapAnimation: TapAnimation.ripple(),
+                      shape: ButtonShape.stadium(),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
+                      child: const Text('Stadium',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                    NewAnimatedButton(
+                      shape: ButtonShape.polygon(sides: 6),
+                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                       gradient: const LinearGradient(
                           colors: [Color(0xFF10B981), Color(0xFF059669)]),
-                      child: const Text('Hold Me (1.5s)',
+                      child: const Text('Polygon',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                    NewAnimatedButton(
+                      shape: ButtonShape.circle(),
+                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
+                      child: const Text('Circle',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                    NewAnimatedButton(
+                      shape: ButtonShape.star(points: 7),
+                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFFF59E0B), Color(0xFFD97706)]),
+                      child: const Text('Circle',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold)),

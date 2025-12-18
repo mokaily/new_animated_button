@@ -91,26 +91,28 @@ NewAnimatedButton(
 ---
 
 ## 🎯 Tap Animations
+#### Explore each animation attribute ;)
 
 ```dart
-TapAnimation.jelly(),
-TapAnimation.scale(),
-TapAnimation.ripple(),
-TapAnimation.bounce(),
-TapAnimation.wave(),
+tapAnimation: TapAnimation.jelly(),
+tapAnimation: TapAnimation.scale(),
+tapAnimation: TapAnimation.ripple(),
+tapAnimation: TapAnimation.bounce(),
+tapAnimation: TapAnimation.wave(),
 ```
 <p align="start"><img src="https://github.com/mokaily/new_animated_button/blob/main/example/images/tap_animation.gif?raw=true" width="600"/></p>
 
 ---
 
 ## 🖱️ Hover Animations
+#### Explore each animation attribute ;)
 
 ```dart
-HoverAnimation.scale(),
-HoverAnimation.lift(),
-HoverAnimation.glow(),
-HoverAnimation.shimmer(),
-HoverAnimation.none(),
+hoverAnimation: HoverAnimation.scale(),
+hoverAnimation: HoverAnimation.lift(),
+hoverAnimation: HoverAnimation.glow(),
+hoverAnimation: HoverAnimation.shimmer(),
+hoverAnimation: HoverAnimation.none(),
 ```
 <p align="start"><img src="https://github.com/mokaily/new_animated_button/blob/main/example/images/hover_animation.gif?raw=true" width="600"/></p>
 
@@ -152,11 +154,11 @@ NewAnimatedButton(
 ## 🔺 Custom Shapes
 
 ```dart
-ButtonShape.roundedRectangle(radius: 30);
-ButtonShape.stadium();
-ButtonShape.circle();
-ButtonShape.polygon(sides: 6);
-ButtonShape.star(points: 5);
+shape: ButtonShape.roundedRectangle(radius: 30);
+shape: ButtonShape.stadium();
+shape: ButtonShape.circle();
+shape: ButtonShape.polygon(sides: 6);
+shape: ButtonShape.star(points: 5);
 ```
 <p align="start"><img src="https://github.com/mokaily/new_animated_button/blob/main/example/images/shapes.png?raw=true" width="600"/></p>
 

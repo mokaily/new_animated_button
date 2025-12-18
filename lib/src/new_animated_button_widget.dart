@@ -44,7 +44,6 @@ class NewAnimatedButton extends StatefulWidget {
   /// pointer down instead of pointer up to allow instant feedback.
   final VoidCallback? onPressed;
 
-
   /// Called when the pointer is released after a press.
   ///
   /// Useful for separating press and release logic.
@@ -74,12 +73,10 @@ class NewAnimatedButton extends StatefulWidget {
   /// Defaults to a jelly animation.
   final TapAnimation tapAnimation;
 
-
   /// Defines the animation applied when the pointer hovers over the button.
   ///
   /// Hover animations are mainly intended for desktop and web platforms.
   final HoverAnimation hoverAnimation;
-
 
   /// If null -> uses [borderRadius] rounded rectangle.
   final ButtonShape? shape;
@@ -126,7 +123,8 @@ class NewAnimatedButton extends StatefulWidget {
   State<NewAnimatedButton> createState() => _NewAnimatedButtonState();
 }
 
-class _NewAnimatedButtonState extends State<NewAnimatedButton> with TickerProviderStateMixin {
+class _NewAnimatedButtonState extends State<NewAnimatedButton>
+    with TickerProviderStateMixin {
   late final AnimationController _pressController;
   late final AnimationController _releaseController;
   late final AnimationController _hoverController;
@@ -136,7 +134,8 @@ class _NewAnimatedButtonState extends State<NewAnimatedButton> with TickerProvid
   /// Tracks the last pointer position without triggering widget rebuilds.
   ///
   /// Used to drive jelly and ripple effects efficiently.
-  final ValueNotifier<Offset?> _pressPositionNotifier = ValueNotifier<Offset?>(null);
+  final ValueNotifier<Offset?> _pressPositionNotifier =
+      ValueNotifier<Offset?>(null);
 
   bool _isPressed = false;
   bool _isHovered = false;
@@ -167,8 +166,10 @@ class _NewAnimatedButtonState extends State<NewAnimatedButton> with TickerProvid
       releaseDuration = tapAnim.duration;
     }
 
-    _pressController = AnimationController(vsync: this, duration: pressDuration);
-    _releaseController = AnimationController(vsync: this, duration: releaseDuration);
+    _pressController =
+        AnimationController(vsync: this, duration: pressDuration);
+    _releaseController =
+        AnimationController(vsync: this, duration: releaseDuration);
 
     var hoverDuration = const Duration(milliseconds: 200);
     final hover = widget.hoverAnimation;
@@ -176,7 +177,8 @@ class _NewAnimatedButtonState extends State<NewAnimatedButton> with TickerProvid
     if (hover is HoverLiftAnimation) hoverDuration = hover.duration;
     if (hover is HoverGlowAnimation) hoverDuration = hover.duration;
 
-    _hoverController = AnimationController(vsync: this, duration: hoverDuration);
+    _hoverController =
+        AnimationController(vsync: this, duration: hoverDuration);
 
     _shimmerController = AnimationController(
       vsync: this,
@@ -185,7 +187,8 @@ class _NewAnimatedButtonState extends State<NewAnimatedButton> with TickerProvid
           : const Duration(milliseconds: 1500),
     );
 
-    _longPressController = AnimationController(vsync: this, duration: widget.longPressDuration);
+    _longPressController =
+        AnimationController(vsync: this, duration: widget.longPressDuration);
 
     _longPressController.addStatusListener((status) {
       if (status == AnimationStatus.completed && !_longPressTriggered) {
@@ -207,7 +210,8 @@ class _NewAnimatedButtonState extends State<NewAnimatedButton> with TickerProvid
   }
 
   ButtonShape _resolveShape() {
-    return widget.shape ?? ButtonShape.roundedRectangle(radius: widget.borderRadius);
+    return widget.shape ??
+        ButtonShape.roundedRectangle(radius: widget.borderRadius);
   }
 
   void _handlePointerDown(PointerDownEvent event) {
@@ -319,7 +323,8 @@ class _NewAnimatedButtonState extends State<NewAnimatedButton> with TickerProvid
 
   Widget _buildPaintedContent() {
     final shape = _resolveShape();
-    final effectiveGradient = widget.gradient ?? (widget.color == null ? defaultGradient : null);
+    final effectiveGradient =
+        widget.gradient ?? (widget.color == null ? defaultGradient : null);
 
     final childWithPadding = Padding(
       padding: widget.padding,
@@ -428,7 +433,8 @@ class _NewAnimatedButtonState extends State<NewAnimatedButton> with TickerProvid
     }
 
     final sizedButton = (widget.width != null || widget.height != null)
-        ? SizedBox(width: widget.width, height: widget.height, child: buttonWidget)
+        ? SizedBox(
+            width: widget.width, height: widget.height, child: buttonWidget)
         : IntrinsicWidth(child: IntrinsicHeight(child: buttonWidget));
 
     return MouseRegion(

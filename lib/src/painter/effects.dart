@@ -49,7 +49,8 @@ List<Offset> _applyJelly({
   if (pressPosition == null) return points;
 
   final deformed = <Offset>[];
-  final maxDistance = math.sqrt(size.width * size.width + size.height * size.height);
+  final maxDistance =
+      math.sqrt(size.width * size.width + size.height * size.height);
 
   for (final p in points) {
     var x = p.dx;
@@ -68,8 +69,11 @@ List<Offset> _applyJelly({
       x -= dirX * deformation;
       y -= dirY * deformation;
     } else if (releaseProgress > 0) {
-      final bounce = math.sin(releaseProgress * math.pi) * influence * anim.bounceStrength;
-      final overshoot = math.sin(releaseProgress * math.pi * 2) * influence * (anim.bounceStrength * 0.5);
+      final bounce =
+          math.sin(releaseProgress * math.pi) * influence * anim.bounceStrength;
+      final overshoot = math.sin(releaseProgress * math.pi * 2) *
+          influence *
+          (anim.bounceStrength * 0.5);
       x += dirX * (bounce + overshoot);
       y += dirY * (bounce + overshoot);
     }
@@ -90,7 +94,8 @@ List<Offset> _applyWave({
   if (pressPosition == null || releaseProgress == 0) return points;
 
   final deformed = <Offset>[];
-  final maxDistance = math.sqrt(size.width * size.width + size.height * size.height);
+  final maxDistance =
+      math.sqrt(size.width * size.width + size.height * size.height);
 
   for (final p in points) {
     final dx = p.dx - pressPosition.dx;
@@ -104,7 +109,8 @@ List<Offset> _applyWave({
       final waveIntensity = (1 - distanceFromWave / 50) * anim.waveStrength;
       final dirX = dx / (distance + 0.1);
       final dirY = dy / (distance + 0.1);
-      deformed.add(Offset(p.dx + dirX * waveIntensity, p.dy + dirY * waveIntensity));
+      deformed.add(
+          Offset(p.dx + dirX * waveIntensity, p.dy + dirY * waveIntensity));
     } else {
       deformed.add(p);
     }

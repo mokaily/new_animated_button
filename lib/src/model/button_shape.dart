@@ -9,27 +9,37 @@ abstract class ButtonShape {
   static ButtonShape rectangle() => const RectangleShape();
   static ButtonShape stadium() => const StadiumShape();
 
-  static ButtonShape roundedRectangle({double radius = 30.0}) => RoundedRectangleShape(radius: radius);
+  static ButtonShape roundedRectangle({double radius = 30.0}) =>
+      RoundedRectangleShape(radius: radius);
 
   static ButtonShape roundedRectangleCustom({
     double topLeft = 0,
     double topRight = 0,
     double bottomLeft = 0,
     double bottomRight = 0,
-  }) => RoundedRectangleCustomShape(
-    topLeft: topLeft,
-    topRight: topRight,
-    bottomLeft: bottomLeft,
-    bottomRight: bottomRight,
-  );
+  }) =>
+      RoundedRectangleCustomShape(
+        topLeft: topLeft,
+        topRight: topRight,
+        bottomLeft: bottomLeft,
+        bottomRight: bottomRight,
+      );
 
   static ButtonShape polygon({required int sides, double rotation = 0}) =>
       PolygonShape(sides: sides, rotation: rotation);
 
-  static ButtonShape star({required int points, double innerRadiusRatio = 0.5, double rotation = 0}) =>
-      StarShape(points: points, innerRadiusRatio: innerRadiusRatio, rotation: rotation);
+  static ButtonShape star(
+          {required int points,
+          double innerRadiusRatio = 0.5,
+          double rotation = 0}) =>
+      StarShape(
+          points: points,
+          innerRadiusRatio: innerRadiusRatio,
+          rotation: rotation);
 
-  static ButtonShape custom({required Path Function(Size size) pathBuilder, int smoothPoints = 60}) =>
+  static ButtonShape custom(
+          {required Path Function(Size size) pathBuilder,
+          int smoothPoints = 60}) =>
       CustomShape(pathBuilder: pathBuilder, smoothPoints: smoothPoints);
 }
 
@@ -82,7 +92,10 @@ class StarShape extends ButtonShape {
   final double innerRadiusRatio;
   final double rotation;
 
-  const StarShape({required this.points, required this.innerRadiusRatio, required this.rotation});
+  const StarShape(
+      {required this.points,
+      required this.innerRadiusRatio,
+      required this.rotation});
 }
 
 @immutable

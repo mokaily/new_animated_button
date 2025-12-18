@@ -32,7 +32,6 @@ class NewAnimatedButtonPainter extends CustomPainter {
   final ButtonShape shape;
   final ButtonShadow shadow;
 
-
   const NewAnimatedButtonPainter({
     required this.pressPosition,
     required this.pressProgress,
@@ -79,7 +78,6 @@ class NewAnimatedButtonPainter extends CustomPainter {
       shadow: shadow, // ✅
     );
 
-
     drawBackgroundLayer(
       canvas: canvas,
       path: path,
@@ -111,7 +109,8 @@ class NewAnimatedButtonPainter extends CustomPainter {
     }
 
     if (hasLongPress && isPressed && longPressProgress > 0) {
-      drawLongPressIndicator(canvas: canvas, size: size, progress: longPressProgress);
+      drawLongPressIndicator(
+          canvas: canvas, size: size, progress: longPressProgress);
     }
 
     if (tapAnimation is RippleTapAnimation && pressPosition != null) {

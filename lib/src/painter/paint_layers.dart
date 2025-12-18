@@ -42,7 +42,8 @@ void drawBackgroundLayer({
 }) {
   final paint = Paint()..style = PaintingStyle.fill;
   if (gradient != null) {
-    paint.shader = gradient.createShader(Rect.fromLTWH(0, 0, size.width, size.height));
+    paint.shader =
+        gradient.createShader(Rect.fromLTWH(0, 0, size.width, size.height));
   } else {
     paint.color = color ?? const Color(0xFF7C3AED);
   }
@@ -68,8 +69,10 @@ void drawBorderLayer({
   var borderWidth = 1.0;
 
   if (hoverAnimation is HoverGlowAnimation && isHovered) {
-    borderOpacityAlpha =
-        (borderOpacityAlpha + (hoverAnimation.glowStrength * hoverProgress * 255)).clamp(0, 255).toInt();
+    borderOpacityAlpha = (borderOpacityAlpha +
+            (hoverAnimation.glowStrength * hoverProgress * 255))
+        .clamp(0, 255)
+        .toInt();
     borderWidth += 1.0 * hoverProgress;
   }
 
@@ -84,11 +87,15 @@ void drawBorderLayer({
   canvas.drawPath(path, paint);
 }
 
-void drawHighlightLayer({required Canvas canvas, required List<Offset> points, required Size size}) {
+void drawHighlightLayer(
+    {required Canvas canvas,
+    required List<Offset> points,
+    required Size size}) {
   if (points.length < 4) return;
 
   final highlightPoints = points.sublist(0, points.length ~/ 2);
-  final highlightPath = Path()..moveTo(highlightPoints[0].dx, highlightPoints[0].dy);
+  final highlightPath = Path()
+    ..moveTo(highlightPoints[0].dx, highlightPoints[0].dy);
   for (var i = 1; i < highlightPoints.length; i++) {
     highlightPath.lineTo(highlightPoints[i].dx, highlightPoints[i].dy);
   }
@@ -112,7 +119,8 @@ void drawRippleLayer({
   required double releaseProgress,
   required RippleTapAnimation animation,
 }) {
-  final maxRadius = math.sqrt(size.width * size.width + size.height * size.height);
+  final maxRadius =
+      math.sqrt(size.width * size.width + size.height * size.height);
   final radius = releaseProgress * maxRadius;
 
   final alpha = (77 * (1 - releaseProgress)).clamp(0, 255).toInt();
@@ -135,7 +143,11 @@ void drawShimmerLayer({
     ..shader = LinearGradient(
       begin: Alignment(-1.0 + shimmerProgress * 2, 0),
       end: Alignment(1.0 + shimmerProgress * 2, 0),
-      colors: [Colors.transparent, Colors.white.withAlpha(77), Colors.transparent],
+      colors: [
+        Colors.transparent,
+        Colors.white.withAlpha(77),
+        Colors.transparent
+      ],
       stops: const [0.0, 0.5, 1.0],
     ).createShader(Rect.fromLTWH(0, 0, size.width, size.height))
     ..blendMode = BlendMode.overlay;
@@ -143,7 +155,8 @@ void drawShimmerLayer({
   canvas.drawPath(path, paint);
 }
 
-void drawLongPressIndicator({required Canvas canvas, required Size size, required double progress}) {
+void drawLongPressIndicator(
+    {required Canvas canvas, required Size size, required double progress}) {
   final rect = Rect.fromLTWH(-3, -3, size.width + 6, size.height + 6);
 
   final paint = Paint()

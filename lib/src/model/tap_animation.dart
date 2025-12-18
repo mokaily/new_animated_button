@@ -9,32 +9,37 @@ abstract class TapAnimation {
     double bounceStrength = 15.0,
     Duration pressDuration = const Duration(milliseconds: 300),
     Duration releaseDuration = const Duration(milliseconds: 600),
-  }) => JellyTapAnimation(
-    deformationStrength: deformationStrength,
-    bounceStrength: bounceStrength,
-    pressDuration: pressDuration,
-    releaseDuration: releaseDuration,
-  );
+  }) =>
+      JellyTapAnimation(
+        deformationStrength: deformationStrength,
+        bounceStrength: bounceStrength,
+        pressDuration: pressDuration,
+        releaseDuration: releaseDuration,
+      );
 
   static TapAnimation scale({
     double scaleAmount = 0.95,
     Duration duration = const Duration(milliseconds: 150),
-  }) => ScaleTapAnimation(scaleAmount: scaleAmount, duration: duration);
+  }) =>
+      ScaleTapAnimation(scaleAmount: scaleAmount, duration: duration);
 
   static TapAnimation ripple({
     Color rippleColor = Colors.white,
     Duration duration = const Duration(milliseconds: 600),
-  }) => RippleTapAnimation(rippleColor: rippleColor, duration: duration);
+  }) =>
+      RippleTapAnimation(rippleColor: rippleColor, duration: duration);
 
   static TapAnimation bounce({
     double bounceHeight = 8.0,
     Duration duration = const Duration(milliseconds: 400),
-  }) => BounceTapAnimation(bounceHeight: bounceHeight, duration: duration);
+  }) =>
+      BounceTapAnimation(bounceHeight: bounceHeight, duration: duration);
 
   static TapAnimation wave({
     double waveStrength = 20.0,
     Duration duration = const Duration(milliseconds: 500),
-  }) => WaveTapAnimation(waveStrength: waveStrength, duration: duration);
+  }) =>
+      WaveTapAnimation(waveStrength: waveStrength, duration: duration);
 
   static TapAnimation none() => const NoTapAnimation();
 }
@@ -75,7 +80,8 @@ class BounceTapAnimation extends TapAnimation {
   final double bounceHeight;
   final Duration duration;
 
-  const BounceTapAnimation({required this.bounceHeight, required this.duration});
+  const BounceTapAnimation(
+      {required this.bounceHeight, required this.duration});
 }
 
 @immutable

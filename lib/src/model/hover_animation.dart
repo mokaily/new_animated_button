@@ -7,20 +7,25 @@ abstract class HoverAnimation {
   static HoverAnimation scale({
     double scaleAmount = 1.05,
     Duration duration = const Duration(milliseconds: 200),
-  }) => HoverScaleAnimation(scaleAmount: scaleAmount, duration: duration);
+  }) =>
+      HoverScaleAnimation(scaleAmount: scaleAmount, duration: duration);
 
   static HoverAnimation lift({
     double liftHeight = 4.0,
     Duration duration = const Duration(milliseconds: 200),
-  }) => HoverLiftAnimation(liftHeight: liftHeight, duration: duration);
+  }) =>
+      HoverLiftAnimation(liftHeight: liftHeight, duration: duration);
 
   static HoverAnimation glow({
     Color glowColor = Colors.white,
     double glowStrength = 0.5,
     Duration duration = const Duration(milliseconds: 200),
-  }) => HoverGlowAnimation(glowColor: glowColor, glowStrength: glowStrength, duration: duration);
+  }) =>
+      HoverGlowAnimation(
+          glowColor: glowColor, glowStrength: glowStrength, duration: duration);
 
-  static HoverAnimation shimmer({Duration duration = const Duration(milliseconds: 1500)}) =>
+  static HoverAnimation shimmer(
+          {Duration duration = const Duration(milliseconds: 1500)}) =>
       HoverShimmerAnimation(duration: duration);
 
   static HoverAnimation none() => const NoHoverAnimation();
@@ -31,7 +36,8 @@ class HoverScaleAnimation extends HoverAnimation {
   final double scaleAmount;
   final Duration duration;
 
-  const HoverScaleAnimation({required this.scaleAmount, required this.duration});
+  const HoverScaleAnimation(
+      {required this.scaleAmount, required this.duration});
 }
 
 @immutable
@@ -48,7 +54,10 @@ class HoverGlowAnimation extends HoverAnimation {
   final double glowStrength;
   final Duration duration;
 
-  const HoverGlowAnimation({required this.glowColor, required this.glowStrength, required this.duration});
+  const HoverGlowAnimation(
+      {required this.glowColor,
+      required this.glowStrength,
+      required this.duration});
 }
 
 @immutable

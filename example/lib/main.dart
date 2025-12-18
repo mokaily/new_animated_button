@@ -40,12 +40,17 @@ class AnimationDemoPage extends StatelessWidget {
               children: [
                 const Text(
                   'New Animated Buttons 🎨',
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Color(0xFF374151)),
+                  style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF374151)),
                 ),
                 const SizedBox(height: 40),
 
                 // TAP ANIMATIONS
-                const Text('Tap Animations', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                const Text('Tap Animations',
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 20),
                 Wrap(
                   spacing: 20,
@@ -56,35 +61,49 @@ class AnimationDemoPage extends StatelessWidget {
                       onPressed: () => {},
                       tapAnimation: TapAnimation.jelly(),
                       child: const Text('Jelly',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
                       tapAnimation: TapAnimation.scale(),
-                      gradient: const LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
                       child: const Text('Scale',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
                       tapAnimation: TapAnimation.ripple(),
-                      gradient: const LinearGradient(colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
                       child: const Text('Ripple',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
                       tapAnimation: TapAnimation.bounce(),
-                      gradient: const LinearGradient(colors: [Color(0xFF10B981), Color(0xFF059669)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFF10B981), Color(0xFF059669)]),
                       child: const Text('Bounce',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
                       tapAnimation: TapAnimation.wave(),
-                      gradient: const LinearGradient(colors: [Color(0xFFF59E0B), Color(0xFFD97706)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFFF59E0B), Color(0xFFD97706)]),
                       child: const Text('Wave',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
@@ -92,7 +111,9 @@ class AnimationDemoPage extends StatelessWidget {
                 const SizedBox(height: 50),
 
                 // HOVER ANIMATIONS
-                const Text('Hover Animations', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                const Text('Hover Animations',
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 20),
                 Wrap(
                   spacing: 20,
@@ -103,33 +124,45 @@ class AnimationDemoPage extends StatelessWidget {
                       onPressed: () => {},
                       tapAnimation: TapAnimation.scale(),
                       hoverAnimation: HoverAnimation.scale(),
-                      gradient: const LinearGradient(colors: [Color(0xFF8B5CF6), Color(0xFF7C3AED)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFF8B5CF6), Color(0xFF7C3AED)]),
                       child: const Text('Hover Scale',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
                       tapAnimation: TapAnimation.scale(),
                       hoverAnimation: HoverAnimation.lift(),
-                      gradient: const LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
                       child: const Text('Lift',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
                       tapAnimation: TapAnimation.scale(),
                       hoverAnimation: HoverAnimation.glow(),
-                      gradient: const LinearGradient(colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
                       child: const Text('Glow',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
                       tapAnimation: TapAnimation.scale(),
                       hoverAnimation: HoverAnimation.shimmer(),
-                      gradient: const LinearGradient(colors: [Color(0xFF10B981), Color(0xFF059669)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFF10B981), Color(0xFF059669)]),
                       child: const Text('Shimmer',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
@@ -138,7 +171,8 @@ class AnimationDemoPage extends StatelessWidget {
 
                 // COMBINED
                 const Text('Combined Animations',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 20),
                 Wrap(
                   spacing: 20,
@@ -151,25 +185,33 @@ class AnimationDemoPage extends StatelessWidget {
                       tapAnimation: TapAnimation.jelly(),
                       hoverAnimation: HoverAnimation.scale(),
                       child: const Text('Jelly + Scale',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
                       onPressedUp: () => {},
                       tapAnimation: TapAnimation.ripple(),
                       hoverAnimation: HoverAnimation.lift(),
-                      gradient: const LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
                       child: const Text('Ripple + Lift',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
                       onPressedUp: () => {},
                       tapAnimation: TapAnimation.wave(),
                       hoverAnimation: HoverAnimation.glow(),
-                      gradient: const LinearGradient(colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFF3B82F6), Color(0xFF1D4ED8)]),
                       child: const Text('Wave + Glow',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
@@ -177,7 +219,9 @@ class AnimationDemoPage extends StatelessWidget {
                 const SizedBox(height: 50),
 
                 // LONG PRESS
-                const Text('Long Press', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                const Text('Long Press',
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 20),
                 Wrap(
                   spacing: 20,
@@ -190,9 +234,12 @@ class AnimationDemoPage extends StatelessWidget {
                       onLongPress: () => {},
                       longPressDuration: const Duration(milliseconds: 500),
                       tapAnimation: TapAnimation.scale(),
-                      gradient: const LinearGradient(colors: [Color(0xFF8B5CF6), Color(0xFF7C3AED)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFF8B5CF6), Color(0xFF7C3AED)]),
                       child: const Text('Hold Me (500ms)',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
@@ -200,9 +247,12 @@ class AnimationDemoPage extends StatelessWidget {
                       onLongPress: () => {},
                       longPressDuration: const Duration(milliseconds: 1000),
                       tapAnimation: TapAnimation.jelly(),
-                      gradient: const LinearGradient(colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFFEC4899), Color(0xFFDB2777)]),
                       child: const Text('Hold Me (1s)',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                     NewAnimatedButton(
                       onPressed: () => {},
@@ -210,9 +260,12 @@ class AnimationDemoPage extends StatelessWidget {
                       onLongPress: () => {},
                       longPressDuration: const Duration(milliseconds: 1500),
                       tapAnimation: TapAnimation.ripple(),
-                      gradient: const LinearGradient(colors: [Color(0xFF10B981), Color(0xFF059669)]),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xFF10B981), Color(0xFF059669)]),
                       child: const Text('Hold Me (1.5s)',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
@@ -220,7 +273,10 @@ class AnimationDemoPage extends StatelessWidget {
                 const SizedBox(height: 30),
                 const Text(
                   '💡 Hover, click, and hold to see all animations!',
-                  style: TextStyle(fontSize: 14, color: Color(0xFF6B7280), fontStyle: FontStyle.italic),
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Color(0xFF6B7280),
+                      fontStyle: FontStyle.italic),
                 ),
               ],
             ),

@@ -1,4 +1,4 @@
-## 1.0.2
+## 1.0.0
 * Initial release
 * Advanced tap animations (jelly, scale, ripple, bounce, wave)
 * Hover animations (scale, lift, glow, shimmer)

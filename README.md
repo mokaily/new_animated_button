@@ -60,7 +60,7 @@ Example:
 
 ```yaml
 dependencies:
-  new_animated_button: ^1.0.0
+  new_animated_button: ^
 ```
 
 ```bash

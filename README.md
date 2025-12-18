@@ -99,20 +99,20 @@ TapAnimation.ripple(),
 TapAnimation.bounce(),
 TapAnimation.wave(),
 ```
-![tap_animation.gif](example/images/tap_animation.gif)
+<p align="start"><img src="https://github.com/mokaily/new_animated_button/blob/main/example/images/tap_animation.gif?raw=true" width="600"/></p>
 
 ---
 
 ## 🖱️ Hover Animations
 
 ```dart
-HoverAnimation.scale();
-HoverAnimation.lift();
-HoverAnimation.glow();
-HoverAnimation.shimmer();
-HoverAnimation.none();
+HoverAnimation.scale(),
+HoverAnimation.lift(),
+HoverAnimation.glow(),
+HoverAnimation.shimmer(),
+HoverAnimation.none(),
 ```
-![hover_animation.gif](example/images/hover_animation.gif)
+<p align="start"><img src="https://github.com/mokaily/new_animated_button/blob/main/example/images/hover_animation.gif?raw=true" width="600"/></p>
 
 ---
 
@@ -133,7 +133,8 @@ NewAnimatedButton(
   ),
 )
 ```
-![combined_animation.gif](example/images/combined_animation.gif)
+<p align="start"><img src="https://github.com/mokaily/new_animated_button/blob/main/example/images/combined_animation.gif?raw=true" width="600"/></p>
+
 
 ---
 
@@ -157,7 +158,8 @@ ButtonShape.circle();
 ButtonShape.polygon(sides: 6);
 ButtonShape.star(points: 5);
 ```
-![shapes.png](example/images/shapes.png)
+<p align="start"><img src="https://github.com/mokaily/new_animated_button/blob/main/example/images/shapes.png?raw=true" width="600"/></p>
+
 
 ---
 
